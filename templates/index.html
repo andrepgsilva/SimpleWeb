@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página inicial</title>
+</head>
+<body>
+    {% if web["form"] == False %}
+    <form action="" method="GET">
+        {% if web["campos"] %}
+            {% for campo in web["campos"] %}
+            <label for="campo" >{{campo}}</label>
+            <input type="text" name="campo" />
+            {% endfor %}
+        {% endif %}
+    </form>
+    {% endif %}
+</body>
+</html>
