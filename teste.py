@@ -1,6 +1,6 @@
-from flask_app import sw, rodar, app
+import simpleweb as sw
 
-sw.webinput("Nome: ")
-sw.webinput("Idade: ")
-rodar(app)
-# flk.rodar(flk.app)
+sw.web_input("Nome: ")
+sw.web_input("Idade: ")
+
+sw.web_run()
