@@ -1,4 +1,4 @@
-from flask_app import app
+from flaskapp import app
 
 campos = []
 form = False
