@@ -1,16 +1,16 @@
 from flaskapp import app
 
-campos = []
+fields = []
 form = False
 
-def web_input(nome_campo):
-    campos.append(nome_campo)
-    form = True if len(campos) > 1 else False
+def web_input(name_field):
+    fields.append(name_field)
+    form = True if len(fields) > 1 else False
     return form
 
 
 def web_env():
-    return {"campos":campos, "form":form}
+    return {"fields":fields, "form":form}
 
 
 def web_run(application = app):

@@ -7,10 +7,10 @@
 <body>
     {% if web["form"] == False %}
     <form action="" method="GET">
-        {% if web["campos"] %}
-            {% for campo in web["campos"] %}
-            <label for="campo" >{{campo}}</label>
-            <input type="text" name="campo" />
+        {% if web["fields"] %}
+            {% for field in web["fields"] %}
+            <label for="{{field}}" >{{field}}</label>
+            <input type="text" name="{{field}}" />
             {% endfor %}
         {% endif %}
         <input type="submit" value="Enviar" />
