@@ -1,6 +1,5 @@
 import simpleweb as sw
 
-sw.web_input("Nome: ")
-sw.web_input("Idade: ")
-
+sw.web_input("Numero 1: ")
+sw.web_input("Numero 2: ")
 sw.web_run()
