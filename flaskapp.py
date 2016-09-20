@@ -11,7 +11,5 @@ def index():
 def catch_data():
     if request.method == "POST":
         for value in request.form:
-            sw.fields_values.append(request.form[value])
-        if len(sw.fields_values) != 0:
-            sw.result_ready = True
+            sw.fields_and_values[value] = int(request.form[value])
     return redirect(url_for("index"))

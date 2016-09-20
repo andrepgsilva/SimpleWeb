@@ -5,8 +5,8 @@
     <title>Página inicial</title>
 </head>
 <body>
-    {% if web["form"] == False %}
-    <form action="{{url_for('catch_data')}}" method="POST">
+    {% if web["fields"].keys()|length > 0 %}
+    <form action="" method="POST">
         {% if web["fields"] %}
             {% for field in web["fields"] %}
             <label for="{{field}}" >{{field}}</label>
@@ -16,10 +16,10 @@
         <input type="submit" value="Enviar" />
     </form>
     {% endif %}
+    {% if web["result_ready"] == True%}
     <div class="board" style="border:1px solid black;height:200px;width:200px;">
-        {% if web["imprime"] == True %}
-            {{ web["web_print"] }}
-        {% endif %}
+        {{ web["fields"].values()|sum }}
     </div>
+    {% endif %}
 </body>
 </html>
