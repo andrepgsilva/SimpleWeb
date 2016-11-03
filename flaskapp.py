@@ -7,9 +7,11 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", web=sw.web_env())
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["POST"])
 def catch_data():
     if request.method == "POST":
+        values = []
         for value in request.form:
-            sw.fields_and_values[value] = int(request.form[value])
+            values.append(request.form[value])
+        sw.result_ready = sw.botao(*values)
     return redirect(url_for("index"))
