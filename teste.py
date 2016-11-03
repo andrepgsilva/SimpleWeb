@@ -5,6 +5,6 @@ def soma(x, y):
 
 sw.web_input("Numero 1: ")
 sw.web_input("Numero 2: ")
-sw.web_button(soma)
+sw.web_button(soma, int)
 
 sw.web_run()

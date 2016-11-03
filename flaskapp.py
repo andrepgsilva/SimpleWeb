@@ -11,7 +11,12 @@ def index():
 def catch_data():
     if request.method == "POST":
         values = []
-        for value in request.form:
-            values.append(request.form[value])
-        sw.result_ready = sw.botao(*values)
+        for fields in sw.field_names:
+            if sw.fn_and_operation[1] == int:
+                values.append(int(request.form[fields]))
+            elif sw.fn_and_operation[1] == float:
+                values.append(float(request.form[fields]))
+            else:
+                values.append(request.form[fields])
+        sw.result_ready = sw.fn_and_operation[0](*values)
     return redirect(url_for("index"))

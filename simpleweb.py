@@ -1,21 +1,20 @@
 from flaskapp import app
 
-fields_and_values = []
-botao = None
+field_names = []
+fn_and_operation = []
 result_ready = None
 
 def web_input(name_field):
-    fields_and_values.append(name_field)
-    return True if len(fields_and_values) > 0 else False
+    field_names.append(name_field)
 
 
 def web_env():
-    return {"fields":fields_and_values, "result_ready":result_ready}#A lógica do result_ready precisa mudar
+    return {"fields":field_names, "result_ready":result_ready}
 
 
-def web_button(fn):
-    global botao
-    botao = fn
+def web_button(fn, operation=str):
+    fn_and_operation.append(fn)
+    fn_and_operation.append(operation)
 
 
 def web_run(application = app):
