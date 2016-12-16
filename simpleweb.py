@@ -1,33 +1,31 @@
 from flaskapp import app
 
-field_names = []
-fn_and_operation = []
+fields_and_types = []
 result_ready = None
 
 def int_input(name_field):
-    field_names.append(name_field)
-    if len(fn_and_operation) < 1:
-        fn_and_operation.append(int)
+    fields_and_types.append([name_field, int])
 
 
 def float_input(name_field):
-    field_names.append(name_field)
-    if len(fn_and_operation) < 1:
-        fn_and_operation.append(float)
+    fields_and_types.append([name_field, float])
 
 
 def str_input(name_field):
-    field_names.append(name_field)
-    if len(fn_and_operation) < 1:
-        fn_and_operation.append(str)
+    fields_and_types.append([name_field, str])
 
 
 def web_env():
-    return {"fields":field_names, "result_ready":result_ready}
+    fields_names = []
+    for i in range(len(fields_and_types)):
+        if i == len(fields_and_types)-1:
+            break
+        fields_names.append(fields_and_types[i][0])
+    return {"fields":fields_names, "result_ready":result_ready}
 
 
 def web_button(fn):
-    fn_and_operation.insert(0, fn)
+    fields_and_types.append(fn)
 
 
 def web_run(application = app):
